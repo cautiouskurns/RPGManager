@@ -10,7 +10,13 @@ public class CombatEvent : GameEvent
     /// <summary>
     /// The result of the combat
     /// </summary>
-    public CombatResult CombatResult { get; private set; }
+    [SerializeField] private CombatResult combatResult;
+    
+    public CombatResult CombatResult
+    {
+        get { return combatResult; }
+        private set { combatResult = value; }
+    }
 
     /// <summary>
     /// Raises the combat event with specific combat result data

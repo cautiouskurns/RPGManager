@@ -20,21 +20,25 @@ public struct SimulationStateData
     /// <summary>
     /// The previous state of the simulation
     /// </summary>
+    [SerializeField]
     public SimulationState PreviousState;
     
     /// <summary>
     /// The new state of the simulation
     /// </summary>
+    [SerializeField]
     public SimulationState NewState;
     
     /// <summary>
     /// The current simulation step
     /// </summary>
+    [SerializeField]
     public int CurrentStep;
     
     /// <summary>
     /// The total number of steps in the simulation
     /// </summary>
+    [SerializeField]
     public int TotalSteps;
 }
 
@@ -47,7 +51,13 @@ public class SimulationEvent : GameEvent
     /// <summary>
     /// The simulation state data
     /// </summary>
-    public SimulationStateData StateData { get; private set; }
+    [SerializeField] private SimulationStateData stateData;
+    
+    public SimulationStateData StateData 
+    { 
+        get { return stateData; } 
+        private set { stateData = value; }
+    }
 
     /// <summary>
     /// Raises the simulation event with specific state data

@@ -10,17 +10,20 @@ public struct LevelUpData
     /// <summary>
     /// The character that leveled up
     /// </summary>
-    public object Character;  // Will be replaced with proper Character type once implemented
+    [SerializeField]
+    public string CharacterName; // Using a string for now instead of object reference
     
     /// <summary>
     /// The new level reached
     /// </summary>
+    [SerializeField]
     public int NewLevel;
     
     /// <summary>
     /// The stats gained in this level up
     /// </summary>
-    public object StatsGained;  // Will be replaced with proper Stats type once implemented
+    [SerializeField]
+    public string StatsGainedDesc; // Using a string for now instead of object reference
 }
 
 /// <summary>
@@ -32,7 +35,13 @@ public class LevelUpEvent : GameEvent
     /// <summary>
     /// The level up information
     /// </summary>
-    public LevelUpData LevelUpData { get; private set; }
+    [SerializeField] private LevelUpData levelUpData;
+    
+    public LevelUpData LevelUpData
+    {
+        get { return levelUpData; }
+        private set { levelUpData = value; }
+    }
 
     /// <summary>
     /// Raises the level up event with specific level up data
